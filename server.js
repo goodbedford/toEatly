@@ -23,6 +23,12 @@ var foods =[
   {id: 4, name: "Kale", yumminess: "meh"}
 ];
 
+
+//GET root
+app.get('/', function(req, res){
+
+  res.render('index',{foods:foods});
+});
 app.listen(3000, function (){
   console.log("listening on port 3000");
 });
