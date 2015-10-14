@@ -30,7 +30,7 @@ function maxId(arr) {
       max = food.id;
     }
   });
-  return max;
+  return ++max;
 }
 
 //GET root
@@ -41,12 +41,12 @@ app.get('/', function(req, res){
 
 //POST food
 app.post('/foods', function(req, res){
-  var newFood = {};
+  var newFood = req.body;
   newFood.id = maxId(foods);
-  newFood.name = req.body.foodName;
-  newFood.yumminess = req.body.foodYumminess;
+  //newFood.name = req.body.name;
+  //newFood.yumminess = req.body.yumminess;
 
-  console.log(req.body)
+  console.log(newFood);
   foods.push( newFood);
   res.render('index', {foods:foods});
 });
