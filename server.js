@@ -40,7 +40,7 @@ app.get('/', function(req, res){
 });
 
 //POST food
-app.post('/foods', function(req, res){
+app.post('/api/foods', function(req, res){
   var newFood = req.body;
   newFood.id = maxId(foods);
   //newFood.name = req.body.name;
@@ -48,7 +48,8 @@ app.post('/foods', function(req, res){
 
   console.log(newFood);
   foods.push( newFood);
-  res.render('index', {foods:foods});
+  res.redirect('/');
+  //res.render('index', {foods:foods});
 });
 app.listen(3000, function (){
   console.log("listening on port 3000");
