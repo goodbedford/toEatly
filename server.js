@@ -24,13 +24,19 @@ var foods =[
 ];
 
 function maxId(arr) {
-  var max = arr[0].id;
-  arr.forEach(function(food){
-    if( food.id > max){
-      max = food.id;
-    }
-  });
-  return ++max;
+  var max;
+  if (arr.length){ 
+    max = arr[0].id;
+    arr.forEach(function(food){
+      if( food.id > max){
+        max = food.id;
+      }
+    });
+    return ++max;
+  } else{
+    max = 1;
+    return max;
+  }
 }
 
 //GET root
@@ -45,12 +51,21 @@ app.post('/api/foods', function(req, res){
   newFood.id = maxId(foods);
   //newFood.name = req.body.name;
   //newFood.yumminess = req.body.yumminess;
-
   console.log(newFood);
   foods.push( newFood);
-  res.redirect('/');
+  res.json(newFood);
+  //res.redirect('/');
   //res.render('index', {foods:foods});
 });
+
+//DELETE food
+app.delete('/api/foods/:id', function(req, res){
+  var targetId = req.params.id;
+  var deleted;
+
+  res.json();
+});
+
 app.listen(3000, function (){
   console.log("listening on port 3000");
 });
