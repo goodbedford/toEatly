@@ -30,6 +30,6 @@ $(document).ready(function(){
 
   function addFood( data){
               var htmlString = '<li><strong>' +data.name+'</strong>:'+data.yumminess+'</li>';
-          $('#food-ul').append(htmlString);
+          $('#food-ul').prepend(htmlString);
   }
 });
