@@ -1,1 +1,13 @@
 /* Custom CSS */
+
+.color{
+  background-color: red; /* class selector */
+}
+
+#myInputBox{
+  background-color: red;  /*id selector */
+}
+
+p{
+  background-color: yellow;  /* element selector */
+}
